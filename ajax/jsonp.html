@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jsonp</title>
+</head>
+<body>
+	<input type="button" id='btn' value="点击">
+	<script>
+		function addScript (url){
+			var script = document.createElement('script');
+				script.src = url;
+			document.head.appendChild(script);
+		}
+		function callback (data){
+			console.log(data.zhangsan)
+		}
+		window.onload = function(){
+			var btn = document.getElementById('btn')
+			btn.onclick= function(){
+				addScript('jsonp.php?cb=callback')
+			}
+		}
+	</script>
+</body>
+</html>
